@@ -1,0 +1,16 @@
+## 10. Faulty Comparator Test
+
+A second test was performed using a faulty comparator that compares only team points.
+
+Test data:
+- Zebras (12 points, goal difference 2)
+- Aces (12 points, goal difference 8)
+- Bears (12 points, goal difference 8)
+
+Faulty output:
+[Zebras(12,2), Aces(12,8), Bears(12,8)]
+
+Correct output:
+[Aces(12,8), Bears(12,8), Zebras(12,2)]
+
+The faulty comparator ignores goal difference and team name. The correct comparator considers all three ranking rules and produces the expected order.

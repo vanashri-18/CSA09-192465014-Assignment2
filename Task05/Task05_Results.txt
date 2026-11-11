@@ -1,0 +1,51 @@
+# Task 5 – Generic Leaderboard and Comparator Analysis
+
+## 1. Objective
+To develop a reusable generic leaderboard that ranks teams based on points, goal difference and team name.
+
+## 2. Ranking Rules
+1. Higher points are ranked first.
+2. If points are equal, higher goal difference is ranked first.
+3. If both are equal, team names are arranged alphabetically.
+
+## 3. Generic Leaderboard
+The class `Leaderboard<T>` stores different types of objects using Java Generics. It accepts a Comparator to decide the ranking order.
+
+The `ranking()` method creates a new copy of the list and sorts it. Therefore, the original list is not modified.
+
+The wildcard `List<? extends T>` allows the method to accept a list containing objects of T or its subclasses.
+
+## 4. Comparator Design
+The comparator uses:
+- `Comparator.comparingInt()` to compare points.
+- `reversed()` to rank higher points first.
+- `thenComparing()` to compare goal difference.
+- Another `thenComparing()` to arrange team names alphabetically.
+
+## 5. Test Results
+The first test produced:
+
+[Eagles(9,6), Bisons(9,4), Panthers(9,4), Cobras(6,1)]
+
+The second test added more teams with equal points and goal differences.
+
+The output correctly ranked teams using all three rules.
+
+## 6. Comparable vs Comparator
+Comparable defines the natural ordering inside a class. Comparator defines a separate ordering outside the class.
+
+Comparator is selected because the same Team class can be ranked using different rules without changing its code.
+
+## 7. Correctness
+The comparator checks points, goal difference and team name in a fixed order. It uses Java comparison methods instead of subtracting values, avoiding integer overflow.
+
+The ordering is transitive and consistent because each comparison follows the same sequence of rules. If all three fields are equal, the comparator returns zero.
+
+## 8. Time Complexity
+- Adding a team: O(1) amortized.
+- Copying the list: O(n).
+- Sorting: O(n log n).
+- Total ranking operation: O(n log n).
+
+## 9. Conclusion
+The program successfully demonstrates Java Generics, Comparator, wildcard types and multi-field sorting. It can be reused for ranking teams, players, colleges and quiz teams.
