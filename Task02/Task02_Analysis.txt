@@ -1,0 +1,97 @@
+
+TASK 2 - PLAYLIST DATA STRUCTURE ANALYSIS
+
+1. INTRODUCTION
+
+This experiment compares ArrayList, LinkedList and ArrayDeque for managing a music playlist.
+
+Three playlist sizes were tested:
+- 1,000 songs
+- 10,000 songs
+- 50,000 songs
+
+Each operation was measured using System.nanoTime() with five repetitions. List creation was performed before the timed operation.
+
+2. EXPERIMENTAL OBSERVATIONS
+
+A. ArrayList
+
+- Provides fast access to songs using an index.
+- Adding at the end is generally efficient.
+- Inserting or removing at the front requires shifting elements.
+- Suitable for playlists where users frequently access songs by position.
+
+B. LinkedList
+
+- Adding and removing at the front is efficient.
+- Accessing a song using an index is slow because nodes must be traversed.
+- Inserting or removing in the middle requires locating the position first.
+- Suitable when frequent front operations are required.
+
+C. ArrayDeque
+
+- Supports adding songs at both ends.
+- Supports efficient removal from the front.
+- Suitable for an Up Next queue where songs are frequently added and removed at both ends.
+
+3. TIME COMPLEXITY COMPARISON
+
+Operation             ArrayList       LinkedList       ArrayDeque
+
+Add at end             O(1)*           O(1)             O(1)*
+Insert at front        O(n)            O(1)             O(1)
+Insert at middle       O(n)            O(n)             Not supported by index
+Remove from front      O(n)            O(1)             O(1)
+Remove from middle     O(n)            O(n)             Not supported by index
+Access k-th song       O(1)            O(n)             Not supported by index
+Iterate playlist       O(n)            O(n)             O(n)
+
+*Amortized time complexity.
+
+4. SPACE COMPLEXITY
+
+ArrayList:
+Stores elements in an array. Each element requires an array slot.
+
+LinkedList:
+Each element is stored in a node containing the element and links to neighbouring nodes. This requires extra memory.
+
+ArrayDeque:
+Stores elements in a resizable circular array.
+
+5. COMPARISON WITH A NORMAL ARRAY
+
+A normal array has a fixed size.
+
+When inserting or removing elements, manual shifting is required.
+
+ArrayList is more convenient because it can grow dynamically and provides built-in operations.
+
+6. WHEN SHOULD WE USE EACH DATA STRUCTURE?
+
+ArrayList:
+Use it when the playlist requires frequent song access by position and iteration.
+
+LinkedList:
+Use it when frequent insertions and removals happen at the beginning of the list.
+
+ArrayDeque:
+Use it for an Up Next queue where songs are added at both ends and removed from the front.
+
+7. CONCLUSION
+
+The experiment shows that no single data structure is best for every operation.
+
+ArrayList performed well for accessing songs by position.
+
+LinkedList performed well for front insertion and removal.
+
+ArrayDeque is suitable for the Up Next queue because it supports operations at both ends.
+
+Therefore, the choice of data structure should depend on how the playlist is used rather than only on its size.
+
+8. EXPERIMENT LIMITATIONS
+
+The timings are averages of five repetitions on one computer. They may vary because of JVM optimisation, garbage collection and system activity.
+
+The measurements represent batches of operations, not the time for one individual operation. The results should therefore be treated as experimental observations rather than universal performance guarantees.

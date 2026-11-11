@@ -1,0 +1,88 @@
+
+TASK 2 - PLAYLIST PERFORMANCE RESULTS
+
+Java Version: OpenJDK 21
+Playlist Sizes: 1000, 10000, 50000
+Number of Repetitions: 5
+
+==============================
+PLAYLIST SIZE: 1000
+==============================
+
+ArrayList
+Add at end: 0.196 ms
+Insert at front: 0.145 ms
+Insert in middle: 0.063 ms
+Remove from front: 0.371 ms
+Remove from middle: 0.046 ms
+Access k-th song: 0.340 ms
+Iterate playlist: 0.215 ms
+
+LinkedList
+Add at end: 0.201 ms
+Insert at front: 0.073 ms
+Insert in middle: 0.290 ms
+Remove from front: 0.073 ms
+Remove from middle: 0.262 ms
+Access k-th song: 1.911 ms
+Iterate playlist: 0.315 ms
+
+ArrayDeque
+Add at both ends: 0.577 ms
+Remove from front: 0.050 ms
+
+==============================
+PLAYLIST SIZE: 10000
+==============================
+
+ArrayList
+Add at end: 0.200 ms
+Insert at front: 0.222 ms
+Insert in middle: 0.192 ms
+Remove from front: 0.224 ms
+Remove from middle: 0.162 ms
+Access k-th song: 0.178 ms
+Iterate playlist: 1.631 ms
+
+LinkedList
+Add at end: 0.155 ms
+Insert at front: 0.023 ms
+Insert in middle: 1.279 ms
+Remove from front: 0.013 ms
+Remove from middle: 1.365 ms
+Access k-th song: 12.496 ms
+Iterate playlist: 0.320 ms
+
+ArrayDeque
+Add at both ends: 0.207 ms
+Remove from front: 0.010 ms
+
+==============================
+PLAYLIST SIZE: 50000
+==============================
+
+ArrayList
+Add at end: 0.172 ms
+Insert at front: 0.959 ms
+Insert in middle: 0.595 ms
+Remove from front: 0.869 ms
+Remove from middle: 0.468 ms
+Access k-th song: 0.160 ms
+Iterate playlist: 0.838 ms
+
+LinkedList
+Add at end: 0.186 ms
+Insert at front: 0.032 ms
+Insert in middle: 6.954 ms
+Remove from front: 0.017 ms
+Remove from middle: 7.282 ms
+Access k-th song: 67.493 ms
+Iterate playlist: 3.492 ms
+
+ArrayDeque
+Add at both ends: 0.242 ms
+Remove from front: 0.027 ms
+
+Note:
+Timings are average measurements from five repetitions.
+Results may vary between runs and computers.
