@@ -1,0 +1,84 @@
+
+TASK 4 - PHARMACY INVENTORY ANALYSIS
+
+1. HASHMAP
+HashMap provides fast medicine-code lookups.
+However, it does not maintain sorted or insertion order.
+Therefore, extra work is required to generate ordered reports.
+
+2. TREEMAP
+TreeMap automatically stores medicine codes in sorted order.
+It is useful for generating the code-order report.
+However, its lookup operation is slower than HashMap in our experiment.
+
+3. LINKEDHASHMAP
+LinkedHashMap maintains the order in which medicines are inserted.
+It is useful for generating the insertion-order report.
+It also provides efficient lookups.
+
+4. EXPERIMENTAL OBSERVATIONS
+The program tested 1,000, 10,000 and 50,000 medicines.
+Each lookup measurement represents 100,000 lookups,
+averaged over five runs after two warm-up runs.
+
+HashMap and LinkedHashMap showed faster lookup times
+than TreeMap in these experiments.
+
+TreeMap produced the medicine-code report in sorted order.
+LinkedHashMap preserved the original insertion order.
+
+All order verification tests returned TRUE.
+
+5. ACCEPTABLE RESPONSE TIME
+For this experiment, the target is to complete
+100,000 medicine-code lookups within 100 ms.
+
+All three maps completed the lookup tests within this target.
+
+6. RECOMMENDED DESIGN
+HashMap is recommended as the main medicine lookup structure
+because it provides efficient average-case lookups.
+
+A TreeMap can be created when the sorted code report is needed.
+A LinkedHashMap or a separate insertion-order record can be
+maintained when the insertion-order report is needed.
+
+This design supports fast lookups and both report requirements.
+
+7. WHY NOT HASHTABLE?
+Hashtable is a legacy synchronized collection.
+Modern Java applications generally prefer HashMap when
+external synchronization is not required.
+ConcurrentHashMap is another option for concurrent access.
+
+8. ALTERNATIVE: SORTED ARRAY
+A sorted array supports binary-search lookups in O(log n).
+It produces code-order reports naturally.
+However, inserting a new medicine may require shifting elements,
+which takes O(n) time.
+
+9. TIME COMPLEXITY
+
+HashMap:
+Lookup - O(1) average
+Iteration - O(n)
+
+TreeMap:
+Lookup - O(log n)
+Iteration - O(n)
+
+LinkedHashMap:
+Lookup - O(1) average
+Iteration - O(n)
+
+Sorted Array:
+Lookup - O(log n)
+Insertion - O(n)
+
+10. CONCLUSION
+HashMap is suitable for fast medicine lookups.
+TreeMap is suitable for sorted reports.
+LinkedHashMap is suitable for insertion-order reports.
+
+The best design depends on the operations required by
+the hospital pharmacy.

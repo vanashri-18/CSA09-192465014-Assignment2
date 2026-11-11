@@ -1,0 +1,30 @@
+
+MEDICINE COUNT: 1000
+Average time for 100,000 lookups:
+HashMap: 3.546 ms
+TreeMap: 23.414 ms
+LinkedHashMap: 2.546 ms
+Code-order report: 1.533 ms
+Insertion-order report: 1.501 ms
+Code order correct: true
+Insertion order correct: true
+
+MEDICINE COUNT: 10000
+Average time for 100,000 lookups:
+HashMap: 2.566 ms
+TreeMap: 27.648 ms
+LinkedHashMap: 4.454 ms
+Code-order report: 19.955 ms
+Insertion-order report: 10.455 ms
+Code order correct: true
+Insertion order correct: true
+
+MEDICINE COUNT: 50000
+Average time for 100,000 lookups:
+HashMap: 3.353 ms
+TreeMap: 31.305 ms
+LinkedHashMap: 2.133 ms
+Code-order report: 55.507 ms
+Insertion-order report: 35.075 ms
+Code order correct: true
+Insertion order correct: true
