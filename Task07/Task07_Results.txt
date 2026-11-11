@@ -1,0 +1,32 @@
+TASK 7 - PLAYLIST REDESIGN RESULTS
+
+Selected Problem:
+Task 2 - LinkedList indexed access.
+
+Test Objective:
+Compare the original LinkedList get(i) method with the redesigned Iterator method.
+
+Experimental Results:
+
+Playlist Size: 1000
+Original get(i): 1.707 ms
+Redesigned Iterator: 0.184 ms
+Results match: true
+
+Playlist Size: 10000
+Original get(i): 64.020 ms
+Redesigned Iterator: 1.812 ms
+Results match: true
+
+Playlist Size: 50000
+Original get(i): 1638.480 ms
+Redesigned Iterator: 0.495 ms
+Results match: true
+
+Observation:
+The original get(i) method became much slower as the playlist size increased.
+The redesigned Iterator method visited each element sequentially.
+Both methods produced the same result in all three tests.
+
+Conclusion:
+Iterator is more suitable for sequential traversal of a LinkedList.

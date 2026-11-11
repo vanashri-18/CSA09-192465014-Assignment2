@@ -1,0 +1,73 @@
+# TASK 7 - PLAYLIST REDESIGN ANALYSIS
+
+## A. Diagnose the Bottleneck
+
+The original Task 2 solution used `LinkedList.get(i)` to access playlist elements.
+
+A LinkedList must travel through its nodes to reach an indexed element. Repeating this operation inside a loop causes unnecessary traversal.
+
+The total time complexity is O(n²).
+
+## B. Design Objective
+
+The objective is to reduce sequential playlist traversal from O(n²) to O(n), while producing the same result.
+
+## C. Revised Solution
+
+The redesigned solution uses an Iterator.
+
+An Iterator moves through the LinkedList one element at a time without repeatedly searching from the beginning.
+
+**Original approach:**
+1. Start at index 0.
+2. Use get(i) to access each element.
+3. Repeat until the end.
+
+**Redesigned approach:**
+1. Create an Iterator.
+2. Check hasNext().
+3. Read the next element.
+4. Repeat until all elements are visited.
+
+**Complexity comparison:**
+
+- Original LinkedList indexed traversal: O(n²)
+- Redesigned Iterator traversal: O(n)
+
+The Iterator avoids repeated node traversal. Both approaches use the same playlist and calculate the same sum.
+
+## D. Prediction Before Implementation
+
+I predicted that the Iterator method would be faster, especially for large playlists, because it visits each element only once.
+
+## E. Implementation and Validation
+
+Both methods were implemented in Java and tested using playlist sizes of 1,000, 10,000 and 50,000 elements.
+
+Each method was measured five times after warm-up, and average execution time was recorded.
+
+| Playlist Size | Original get(i) | Iterator |
+|---|---:|---:|
+| 1,000 | 1.707 ms | 0.184 ms |
+| 10,000 | 64.020 ms | 1.812 ms |
+| 50,000 | 1638.480 ms | 0.495 ms |
+
+All three tests displayed "Results match: true".
+
+This confirms that both methods calculated the same result.
+
+The measurements show that Iterator was faster in these tests. However, the Iterator timings varied unexpectedly between playlist sizes. More repeated benchmark runs would be needed for a reliable performance estimate.
+
+## F. Final Design Defence
+
+The redesign achieved the main objective of reducing the algorithmic complexity from O(n²) to O(n).
+
+Iterator is the better choice when all elements of a LinkedList must be visited sequentially.
+
+The original get(i) approach may still be acceptable for a very small list or when only a particular indexed element is needed.
+
+The redesigned approach is more suitable for large playlists that require sequential processing.
+
+## Conclusion
+
+Using Iterator improves sequential traversal of a LinkedList by avoiding repeated node searching. The Java implementation produced matching results for all tested playlist sizes and demonstrated the benefit of the redesigned approach.
