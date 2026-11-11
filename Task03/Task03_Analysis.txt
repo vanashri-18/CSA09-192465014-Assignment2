@@ -1,0 +1,66 @@
+# TASK 3 – HASHSET AND HASHING
+## Student Attendance System – Analysis
+
+### 1. Objective
+
+The objective is to identify duplicate student records using HashSet and understand the importance of equals() and hashCode() methods.
+
+### 2. Test 1 – Without hashCode()
+
+**Prediction:** The HashSet may count duplicate students separately.
+
+**Observed output:** Unique students: 3
+
+**Explanation:** The equals() method compares registration numbers, but hashCode() is not overridden. Different objects may receive different hash codes, so duplicate records may not be identified.
+
+### 3. Test 2 – With hashCode()
+
+**Prediction:** The HashSet should identify students with the same registration number.
+
+**Observed output:** Unique students: 2
+
+**Explanation:** We added:
+
+```java
+@Override
+public int hashCode() {
+    return regNo.hashCode();
+}
+```
+
+Now equal students have the same hash code. HashSet uses hashCode() and equals() to identify duplicate objects.
+
+### 4. Test 3 – TreeSet Comparator
+
+**Prediction:** TreeSet will store both records because their names are different.
+
+**Observed output:** TreeSet size: 2
+
+**Explanation:** The Comparator compares student names, while equals() compares registration numbers. Therefore, the Comparator is inconsistent with equals(). Both records are stored.
+
+### 5. Importance of hashCode()
+
+- equals() checks whether two objects are logically equal.
+- hashCode() generates an integer value for an object.
+- Equal objects must have the same hash code.
+- Different objects can still have the same hash code.
+- HashSet uses both methods to identify duplicates.
+
+### 6. Time Complexity
+
+| Operation | Average Time Complexity |
+|---|---|
+| HashSet add() | O(1) |
+| HashSet contains() | O(1) |
+| HashSet remove() | O(1) |
+| TreeSet add() | O(log n) |
+| TreeSet contains() | O(log n) |
+| TreeSet remove() | O(log n) |
+
+### 7. Conclusion
+
+The experiment demonstrated that overriding hashCode() is necessary when equals() is overridden for objects stored in a HashSet.
+
+The corrected program successfully identified duplicate student registration numbers. The TreeSet test also demonstrated the importance of using a Comparator consistent with equals() when both should represent the same student identity.
+
+**Final Result:** All three tests were executed successfully.

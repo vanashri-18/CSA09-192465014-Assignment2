@@ -1,0 +1,35 @@
+TASK 3 - HASHSET AND HASHING
+Student Attendance System
+
+TEST 1: HashSet without hashCode()
+
+Output:
+Unique students: 3
+
+Observation:
+The duplicate student was counted again because
+hashCode() was not overridden.
+
+
+TEST 2: HashSet with corrected hashCode()
+
+Output:
+Unique students: 2
+
+Observation:
+After overriding hashCode() using regNo.hashCode(),
+duplicate student records were correctly identified.
+
+
+TEST 3: TreeSet with name-based Comparator
+
+Output:
+TreeSet size: 2
+
+192311001 Arun
+192311001 Arun Kumar
+
+Observation:
+TreeSet compares student names instead of registration
+numbers. Therefore, both records are stored even though
+their registration numbers are identical.
