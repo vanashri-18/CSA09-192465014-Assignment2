@@ -1,0 +1,33 @@
+# Task 1 - Analysis
+
+## 1. Intermediate String Objects
+
+The String concatenation statement creates a new resulting String during each loop iteration.
+
+Small workload:
+1 × 6 = 6 objects
+
+Medium workload:
+1000 × 10 = 10,000 objects
+
+Large workload:
+10000 × 50 = 500,000 objects
+
+Total per complete execution:
+6 + 10,000 + 500,000 = 510,006 estimated resulting String objects.
+
+The benchmark repeats each workload five times. Therefore, approximately 2,550,030 resulting String objects are created during the measured String executions, excluding warm-up.
+
+These are source-level estimates, not exact JVM allocation counts.
+
+## 2. Time Complexity
+
+- String: Repeated concatenation copies existing text, resulting in approximately O(F²) work per ticket for F fields.
+- StringBuilder: Approximately O(F) work per ticket.
+- StringBuffer: Approximately O(F) work per ticket, with synchronization overhead.
+
+## 3. Conclusion
+
+StringBuilder is recommended for generating individual railway tickets because it provides efficient text modification without creating a new resulting String for every concatenation.
+
+StringBuffer is useful when a mutable buffer is shared between threads, but synchronization of the complete ticket operation may still be needed to prevent records from mixing.
