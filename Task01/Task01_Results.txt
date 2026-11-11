@@ -1,0 +1,28 @@
+# Task 1 - Experimental Results
+
+## Workload 1 - Small
+Tickets: 1
+Fields per ticket: 6
+
+- String: 0.03 ms
+- StringBuilder: 0.01 ms
+- StringBuffer: 0.01 ms
+
+## Workload 2 - Medium
+Tickets: 1000
+Fields per ticket: 10
+
+- String: 6.96 ms
+- StringBuilder: 3.05 ms
+- StringBuffer: 2.44 ms
+
+## Workload 3 - Large
+Tickets: 10000
+Fields per ticket: 50
+
+- String: 49.61 ms
+- StringBuilder: 20.19 ms
+- StringBuffer: 26.20 ms
+
+## Preliminary Observation
+StringBuilder performed fastest in the large workload. String was slowest in all three workloads in this particular experiment. More repeated measurements are needed for a reliable conclusion.
