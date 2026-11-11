@@ -1,0 +1,18 @@
+
+TASK 6 - EMERGENCY PATIENT QUEUE SYSTEM
+
+Program Output:
+
+EMERGENCY PATIENT TREATMENT ORDER
+Bala - Severity: 1
+Divya - Severity: 1
+Charan - Severity: 2
+Gokul - Severity: 2
+Arun - Severity: 3
+Farah - Severity: 3
+Hari - Severity: 4
+Ezhil - Severity: 5
+
+RESULT:
+The program successfully treated patients according to severity.
+Patients with equal severity were treated in FIFO order.

@@ -1,0 +1,80 @@
+
+TASK 6 - EMERGENCY PATIENT QUEUE SYSTEM
+ANALYSIS REPORT
+
+1. OBJECTIVE
+
+To develop an emergency patient queue using Java PriorityQueue.
+Patients with higher medical urgency must be treated first.
+
+2. PRIORITY RULES
+
+- Severity 1: Most critical.
+- Severity 2: High priority.
+- Severity 3: Medium priority.
+- Severity 4: Low priority.
+- Severity 5: Minor.
+
+When two patients have the same severity, the patient who arrived first is treated first.
+
+3. DATA STRUCTURE
+
+PriorityQueue is used because it automatically selects the highest-priority patient.
+
+The comparator checks:
+- Severity in ascending order.
+- Arrival number in ascending order.
+
+The arrival number maintains FIFO order for patients with equal severity.
+
+4. TEST RESULTS
+
+Eight patients were added to the queue.
+
+The output correctly placed Severity 1 patients first, followed by Severity 2, 3, 4 and 5.
+
+Patients with equal severity were treated in their arrival order.
+
+5. TIME COMPLEXITY
+
+- Adding a patient: O(log n)
+- Removing the next patient: O(log n)
+- Viewing the highest-priority patient: O(1)
+- Processing all n patients: O(n log n)
+
+6. GROWTH INVESTIGATION
+
+Expected performance as the number of patients increases:
+
+Patients     Add operation     Remove operation
+100          O(log 100)         O(log 100)
+1,000        O(log 1000)        O(log 1000)
+5,000        O(log 5000)        O(log 5000)
+
+The PriorityQueue uses a heap structure. Its insertion and removal operations grow logarithmically.
+
+7. STARVATION PROBLEM
+
+Starvation may occur when patients with Severity 5 continuously wait because more critical patients keep arriving.
+
+Aging can help solve this problem. A patient's priority can gradually improve based on waiting time, while emergency-critical patients continue to receive immediate attention.
+
+8. HOSPITAL DEPLOYMENT
+
+For a city hospital handling 5,000 patients per day, PriorityQueue is a suitable choice because it efficiently manages patient priorities.
+
+The system should also include:
+- Patient record validation.
+- Waiting-time monitoring.
+- Priority aging.
+- Reliable data storage.
+- Access control and audit logs.
+
+The system should be tested under real hospital workloads before deployment.
+
+9. CONCLUSION
+
+The program successfully demonstrates Java PriorityQueue and Comparator.
+
+It treats critical patients first and maintains FIFO order among patients with equal severity.
+
